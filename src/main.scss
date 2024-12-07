@@ -1,0 +1,124 @@
+@use "../../css-toolkit/modules/reset";
+@use "../../css-toolkit/modules/layout";
+@use "../../css-toolkit/modules/ql";
+@use "../../css-toolkit/base.scss" as *;
+
+// apply reset
+@include reset.reset;
+
+// styles
+:root {
+    --bg-headings-buttons: hsl(0, 0%, 95%);
+    --paragraph-text-color: hsla(0, 0%, 100%, 0.75);
+    --bg-sedan: hsl(31, 76%, 52%);
+    --bg-suv: hsl(184, 100%, 22%);
+    --bg-luxury: hsl(179, 100%, 13%);
+}
+
+body {
+    //Background
+    background-color: var(--bg-headings-buttons);
+    //Layout
+    @include layout.flex(column);
+    align-items: center;
+    padding: px2rem(88) px2rem(24);
+    min-height: 100dvh;
+    //Default Typography
+    font-family: "Lexend Deca", sans-serif;
+    font-weight: 400;
+    color: var(--paragraph-text-color);
+}
+
+.card {
+    //Layout
+    @include layout.flex(column);
+    max-width: 28rem;
+    //Appearance
+    border-radius: px2rem(8);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--bg-headings-buttons);
+        font-family: "Big Shoulders Display", sans-serif;
+        font-weight: 700;
+    }
+
+    .title {
+        //Layout
+        padding-bottom: px2rem(25);
+        //Typography
+        font-size: px2rem(40);
+        text-transform: uppercase;
+    }
+
+    .description {
+        //Layout
+        padding-bottom:  px2rem(25);
+        //Typography
+        font-size: px2rem(15);
+        line-height: px2rem(25);
+    }
+
+    .btn-base {
+        //Background
+        background: var(--bg-headings-buttons);
+        //Appearance
+        border: px2rem(2) solid var(--bg-headings-buttons);
+        border-radius: px2rem(25);
+        //Layout
+        display: inline-block;
+        padding: px2rem(9.5) px2rem(30);
+        //Typography
+        color: var(--card-main-color);
+        font-size: px2rem(15);
+        line-height: px2rem(25);
+        text-decoration: none;
+
+        &:hover {
+            // bground
+            background: none;
+            //Typography
+            color: var(--bg-headings-buttons);
+            //Misc
+            cursor: pointer;
+        }
+    }
+}
+
+.section-base {
+    //Layout
+    padding: px2rem(48);
+
+    &:first-of-type {
+        --card-main-color: var(--bg-sedan);
+        //Background
+        background-color: var(--card-main-color);
+        //Appearance
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+
+    &:nth-of-type(even){
+        --card-main-color: var(--bg-suv);
+        //Background
+        background-color: var(--card-main-color);
+    }
+
+    &:last-of-type {
+        --card-main-color: var(--bg-luxury);
+        //Background
+        background-color: var(--card-main-color);
+        //Appearance
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+
+    img.header-image {
+        //Layout
+        padding-bottom: px2rem(35);
+    }
+}
