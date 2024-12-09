@@ -7,6 +7,15 @@
 @include reset.reset;
 
 // styles
+// Dark Theme
+// :root {
+//     --bg-headings-buttons: hsl(231, 15%, 18%);
+//     --paragraph-text-color: hsla(231, 15%, 18%);
+//     --bg-sedan: hsl(31, 60%, 71%);
+//     --bg-suv: hsl(191, 60%, 67%);
+//     --bg-luxury: hsl(135, 60%, 55%);
+// }
+
 :root {
     --bg-headings-buttons: hsl(0, 0%, 95%);
     --paragraph-text-color: hsla(0, 0%, 100%, 0.75);
@@ -57,6 +66,7 @@ body {
 
     .description {
         //Layout
+        flex: 1;
         padding-bottom:  px2rem(25);
         //Typography
         font-size: px2rem(15);
@@ -91,6 +101,8 @@ body {
 
 .section-base {
     //Layout
+    @include layout.flex(column);
+    align-items: flex-start;
     padding: px2rem(48);
 
     &:first-of-type {
@@ -120,5 +132,35 @@ body {
     img.header-image {
         //Layout
         padding-bottom: px2rem(35);
+    }
+}
+
+@media (min-width: px2rem(800)) {
+    body {
+        //Layout
+        padding-top: ql.linear-func-clamp(88, 800, 171, 1440);
+    }
+    .card {
+        flex-direction: row;
+        max-width: unset;
+
+        .description {
+            //Layout
+            padding-bottom: ql.linear-func-clamp(40, 800, 83, 1440);
+        }
+    }
+
+    .section-base {
+        max-width: px2rem(307);
+
+        &:first-of-type {
+            border-top-right-radius: unset;
+            border-bottom-left-radius: inherit;
+        }
+
+        &:last-of-type {
+            border-bottom-left-radius: unset;
+            border-top-right-radius: inherit;
+        }
     }
 }

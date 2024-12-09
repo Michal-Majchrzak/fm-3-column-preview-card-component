@@ -65,6 +65,7 @@ body {
   text-transform: uppercase;
 }
 .card .description {
+  flex: 1;
   padding-bottom: 1.5625rem;
   font-size: 0.9375rem;
   line-height: 1.5625rem;
@@ -87,6 +88,9 @@ body {
 }
 
 .section-base {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   padding: 3rem;
 }
 .section-base:first-of-type {
@@ -107,6 +111,30 @@ body {
 }
 .section-base img.header-image {
   padding-bottom: 2.1875rem;
+}
+
+@media (min-width: 50rem) {
+  body {
+    padding-top: clamp(5.5rem, 12.96875vw + -0.984375rem, 10.6875rem);
+  }
+  .card {
+    flex-direction: row;
+    max-width: unset;
+  }
+  .card .description {
+    padding-bottom: clamp(2.5rem, 6.71875vw + -0.859375rem, 5.1875rem);
+  }
+  .section-base {
+    max-width: 19.1875rem;
+  }
+  .section-base:first-of-type {
+    border-top-right-radius: unset;
+    border-bottom-left-radius: inherit;
+  }
+  .section-base:last-of-type {
+    border-bottom-left-radius: unset;
+    border-top-right-radius: inherit;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
