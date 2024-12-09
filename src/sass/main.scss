@@ -1,7 +1,7 @@
-@use "../../css-toolkit/modules/reset";
-@use "../../css-toolkit/modules/layout";
-@use "../../css-toolkit/modules/ql";
-@use "../../css-toolkit/base.scss" as *;
+@use "../../../css-toolkit/modules/reset";
+@use "../../../css-toolkit/modules/layout";
+@use "../../../css-toolkit/modules/ql";
+@use "../../../css-toolkit/base.scss" as *;
 
 // apply reset
 @include reset.reset;
@@ -10,18 +10,25 @@
 // Dark Theme
 // :root {
 //     --bg-headings-buttons: hsl(231, 15%, 18%);
+//     --bg-theme-button: hsl(0, 0%, 95%);
 //     --paragraph-text-color: hsla(231, 15%, 18%);
 //     --bg-sedan: hsl(31, 60%, 71%);
 //     --bg-suv: hsl(191, 60%, 67%);
+//     --icon-suv-color: hsl(201, 79%, 28%);
 //     --bg-luxury: hsl(135, 60%, 55%);
+//     --icon-luxury-color: hsl(135, 70%, 25%);
 // }
 
 :root {
     --bg-headings-buttons: hsl(0, 0%, 95%);
+    --bg-theme-button: hsl(231, 15%, 18%);
     --paragraph-text-color: hsla(0, 0%, 100%, 0.75);
     --bg-sedan: hsl(31, 76%, 52%);
+    --icon-sedan-color: hsl(42, 100%, 73%);
     --bg-suv: hsl(184, 100%, 22%);
+    --icon-suv-color: hsl(184, 67%, 45%);
     --bg-luxury: hsl(179, 100%, 13%);
+    --icon-luxury-color: hsl(170, 76%, 41%);
 }
 
 body {
@@ -73,29 +80,56 @@ body {
         line-height: px2rem(25);
     }
 
-    .btn-base {
-        //Background
-        background: var(--bg-headings-buttons);
-        //Appearance
-        border: px2rem(2) solid var(--bg-headings-buttons);
-        border-radius: px2rem(25);
-        //Layout
-        display: inline-block;
-        padding: px2rem(9.5) px2rem(30);
-        //Typography
-        color: var(--card-main-color);
-        font-size: px2rem(15);
-        line-height: px2rem(25);
-        text-decoration: none;
+}
 
-        &:hover {
-            // bground
-            background: none;
-            //Typography
-            color: var(--bg-headings-buttons);
-            //Misc
-            cursor: pointer;
-        }
+.btn-base {
+    //Background
+    background: var(--bg-headings-buttons);
+    //Appearance
+    border: px2rem(2) solid var(--bg-headings-buttons);
+    border-radius: px2rem(25);
+    //Layout
+    display: inline-block;
+    padding: px2rem(9.5) px2rem(30);
+    //Typography
+    color: var(--card-main-color);
+    font-size: px2rem(15);
+    line-height: px2rem(25);
+    text-decoration: none;
+
+    &:hover {
+        // bground
+        background: none;
+        //Typography
+        color: var(--bg-headings-buttons);
+        //Misc
+        cursor: pointer;
+    }
+}
+
+.btn-theme {
+    // Background
+    background-color: var(--bg-theme-button);
+    // Appearance
+    border-color: var(--bg-theme-button);
+    //Layout
+    $padding-lr : ql.linear-func-clamp(2, 220, 30, 375);
+    $padding-tb : ql.linear-func-clamp(2, 220, 9.5, 375);
+    padding: $padding-tb $padding-lr;
+
+    &:first-of-type {
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+        border-right: px2rem(1) solid var(--bg-headings-buttons);
+    }
+    &:last-of-type {
+        border-top-left-radius: unset;
+        border-bottom-left-radius: unset;
+        border-left: px2rem(1) solid var(--bg-headings-buttons);
+    }
+
+    &:hover {
+        color: var(--bg-theme-button);
     }
 }
 
@@ -129,10 +163,18 @@ body {
         border-bottom-right-radius: inherit;
     }
 
-    img.header-image {
+    .header-image {
         //Layout
         padding-bottom: px2rem(35);
     }
+}
+
+.button-group {
+    // Position
+    position: absolute;
+    top: 1rem;
+    // Typography -> used to remove whitespace
+    font-size: 0rem;
 }
 
 @media (min-width: px2rem(800)) {

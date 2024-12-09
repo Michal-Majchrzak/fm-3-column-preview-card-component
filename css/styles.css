@@ -25,10 +25,14 @@ input, button, textarea, select {
 /* reset end */
 :root {
   --bg-headings-buttons: hsl(0, 0%, 95%);
+  --bg-theme-button: hsl(231, 15%, 18%);
   --paragraph-text-color: hsla(0, 0%, 100%, 0.75);
   --bg-sedan: hsl(31, 76%, 52%);
+  --icon-sedan-color: hsl(42, 100%, 73%);
   --bg-suv: hsl(184, 100%, 22%);
+  --icon-suv-color: hsl(184, 67%, 45%);
   --bg-luxury: hsl(179, 100%, 13%);
+  --icon-luxury-color: hsl(170, 76%, 41%);
 }
 
 body {
@@ -70,7 +74,8 @@ body {
   font-size: 0.9375rem;
   line-height: 1.5625rem;
 }
-.card .btn-base {
+
+.btn-base {
   background: var(--bg-headings-buttons);
   border: 0.125rem solid var(--bg-headings-buttons);
   border-radius: 1.5625rem;
@@ -81,10 +86,29 @@ body {
   line-height: 1.5625rem;
   text-decoration: none;
 }
-.card .btn-base:hover {
+.btn-base:hover {
   background: none;
   color: var(--bg-headings-buttons);
   cursor: pointer;
+}
+
+.btn-theme {
+  background-color: var(--bg-theme-button);
+  border-color: var(--bg-theme-button);
+  padding: clamp(0.125rem, 4.8387096774vw + -0.5403225806rem, 0.59375rem) clamp(0.125rem, 18.064516129vw + -2.3588709677rem, 1.875rem);
+}
+.btn-theme:first-of-type {
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
+  border-right: 0.0625rem solid var(--bg-headings-buttons);
+}
+.btn-theme:last-of-type {
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+  border-left: 0.0625rem solid var(--bg-headings-buttons);
+}
+.btn-theme:hover {
+  color: var(--bg-theme-button);
 }
 
 .section-base {
@@ -109,8 +133,14 @@ body {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 }
-.section-base img.header-image {
+.section-base .header-image {
   padding-bottom: 2.1875rem;
+}
+
+.button-group {
+  position: absolute;
+  top: 1rem;
+  font-size: 0rem;
 }
 
 @media (min-width: 50rem) {
